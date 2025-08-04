@@ -11,6 +11,7 @@ function App() {
   };
 
   const onAddTodolist = () => {
+    if (todo.trim() === '') return;
     setTodolist([...todolist, { id: uuid(), todo: todo, isCompleted: false }]);
     setTodo('');
   };
@@ -32,24 +33,26 @@ function App() {
       <h1>My wishlist</h1>
       <div>
         <input
+          type="text"
           placeholder='Add your wishlist...'
           value={todo}
           onChange={onTodoInputchange}
         />
         <button onClick={onAddTodolist}>Add</button>
       </div>
+
       <div>
         {
           todolist.length > 0 &&
           todolist.map(item => (
-            <div key={item.id}>
+            <div className="todo-item" key={item.id}>
               <label>
                 <input
                   type='checkbox'
                   checked={item.isCompleted}
                   onChange={() => onTodoCheckchange(item.id)}
                 />
-                <span style={{ textDecoration: item.isCompleted ? 'line-through' : 'none' }}>
+                <span className={item.isCompleted ? 'completed' : ''}>
                   {item.todo}
                 </span>
               </label>
@@ -63,3 +66,4 @@ function App() {
 }
 
 export default App;
+
