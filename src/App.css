@@ -76,3 +76,29 @@ button:hover {
   text-decoration: line-through;
   color: #6b7280;
 }
+.App {
+  text-align: center;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.todo-item {
+  margin: 10px 0;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark input,
+.dark button {
+  background-color: #333;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
